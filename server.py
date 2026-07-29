@@ -23,8 +23,12 @@ def emotion_detect():
     # Extract the dominant emotion
     dominant_emotion = response['dominant_emotion']
 
+    # Check if the user inputs a blank
+    if not dominant_emotion:
+        return "Invalid text! Please try again!"
+    else:
     # Return the output
-    return f"For the given statement, the system response is 'anger': {anger_score}, 'disgust': {disgust_score}, 'fear': {fear_score}, 'joy': {joy_score} and 'sadness': {sadness_score}. The dominant emotion is {dominant_emotion}."
+        return f"For the given statement, the system response is 'anger': {anger_score}, 'disgust': {disgust_score}, 'fear': {fear_score}, 'joy': {joy_score} and 'sadness': {sadness_score}. The dominant emotion is {dominant_emotion}."
 
 # Method to be executed for the route '/'
 @app.route("/")
